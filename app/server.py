@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI, status
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
@@ -8,6 +9,15 @@ from exceptions import APPBaseException, ErrorCode
 
 def init_app():
     _app = FastAPI(title="Midjourney API")
+
+    _app.add_middleware(
+      CORSMiddleware,
+      allow_origins=["*"],
+      allow_credentials=True,
+      allow_methods=["*"],
+      allow_headers=["*"],
+    )
+
 
     register_blueprints(_app)
     exc_handler(_app)
