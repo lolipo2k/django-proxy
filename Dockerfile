@@ -1,17 +1,17 @@
-# 
-FROM python:3.9
+FROM python:3.10.6
+LABEL creator="yokon" email="944682328@qq.com"
 
-# 
-WORKDIR /code
+WORKDIR /app
 
-# 
-COPY ./requirements.txt /code/requirements.txt
+COPY . .
 
-# 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+COPY requirements.txt ./
 
-# 
-COPY ./app /code/app
+RUN pip install --no-cache-dir --upgrade pip \
+  && pip install --no-cache-dir -r requirements.txt
 
-# 
-CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "80"]
+COPY . .
+
+ENTRYPOINT ["bash", "entrypoint.sh"]
+EXPOSE 8062
+CMD ["http"]
