@@ -19,11 +19,12 @@ bot = commands.Bot(command_prefix="", intents=intents)
 
 @bot.event
 async def on_ready():
-    logger.success(f"Logged in as {bot.user} (ID: {bot.user.id})")
+    logger.success(f"Logged 1 in as {bot.user} (ID: {bot.user.id})")
 
 
 @bot.event
 async def on_message(message: Message):
+    logger.debug(f"234675")
     if message.author.id != 936929561302675456:
         return
 
