@@ -16,5 +16,3 @@ ENTRYPOINT ["bash", "entrypoint.sh"]
 EXPOSE 8062
 CMD ["http"]
 
-ENTRYPOINT ["bash", "entrypoint.sh"]
-CMD ["bot"]
