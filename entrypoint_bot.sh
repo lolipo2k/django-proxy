@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-set -- python server.py
+set -- python task_bot.py "$@"
 
 exec "$@"
