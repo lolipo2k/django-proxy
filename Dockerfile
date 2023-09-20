@@ -14,5 +14,3 @@ COPY . .
 
 ENTRYPOINT ["bash", "entrypoint.sh"]
 EXPOSE 8062
-
-ENTRYPOINT ["bash", "entrypoint_bot.sh"]
